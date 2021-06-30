@@ -67,6 +67,8 @@ nav > * {
   font-weight: normal;
   font-size: 36px;
   line-height: 80px;
+  text-transform: capitalize;
+
 }
 .prevPokemonButton:hover {
   border-style: inset;
@@ -86,6 +88,8 @@ nav > * {
   font-weight: normal;
   font-size: 36px;
   line-height: 80px;
+  text-transform: capitalize;
+
 }
 
 .nextPokemonButton:hover {
@@ -107,6 +111,8 @@ h1 {
   font-size: 48px;
   line-height: 120px;
   color: #4bc6f2;
+  text-transform: capitalize;
+
 }
 figure {
   float: left;
@@ -137,6 +143,9 @@ h2 {
   display: flex;
   flex-direction: column;
   margin: 10px;
+}
+.aboutTitle{
+  text-transform: capitalize;
 }
 .about {
   display: flex;
