@@ -239,6 +239,5 @@ data.pokemon[selectedPokemonIndex].weaknesses.forEach(weaknesses =>{
      }
         `</section>
     </section>`
-     
-
+ 
 containerRoot.innerHTML = htmlCode

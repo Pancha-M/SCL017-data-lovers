@@ -31,6 +31,23 @@ function addElement() {
 
 let htmlCode = '';
 
+const pokemonNames = data.pokemon.name;
+
+
+const searchInput = document.querySelector("#searchInput");
+const searchButton = document.querySelector("#searchButton")
+
+const selection = () => {
+const userPokemonName = searchInput.value.toLowerCase();
+    for(let pokemonName of pokemonNames);
+let pokemonNames = pokemonName.pokemonNames;
+if(pokemonNames.indexOf(userPokemonName) !== 1){
+
+}
+
+// searchButton.addEventListener("click",selection)
+
+
 data.pokemon.forEach(element => {
     htmlCode += `<div id=${element.num} class="pokemonCard">
                     <div class="num">${"#" + element.num}</div>

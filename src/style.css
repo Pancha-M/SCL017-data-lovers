@@ -162,6 +162,16 @@ nav > * {
     margin-top: 50px;
     font-size: 18px;
   }
+  
+  .searchButton:hover {
+    border-style: inset;
+    background-color: #f2b707de;
+    cursor: pointer;
+  }
+
+
+
+
 
   .categories {
     margin-top: 70px;
