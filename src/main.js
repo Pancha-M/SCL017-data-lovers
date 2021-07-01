@@ -31,21 +31,46 @@ function addElement() {
 
 let htmlCode = '';
 
-const pokemonNames = data.pokemon.name;
-
-
 const searchInput = document.querySelector("#searchInput");
 const searchButton = document.querySelector("#searchButton")
 
-const selection = () => {
-const userPokemonName = searchInput.value.toLowerCase();
-    for(let pokemonName of pokemonNames);
-let pokemonNames = pokemonName.pokemonNames;
-if(pokemonNames.indexOf(userPokemonName) !== 1){
 
+
+const buscador = () => {
+
+data.pokemon.forEach(search => {
+let dataPokemon = search.name
+    htmlCode = "";
+    
+    const userPokemonName = searchInput.value.toLowerCase();
+
+    for(let name of dataPokemon){
+    if(name.indexOf(userPokemonName) !== 1){
+        document.getElementById('root').innerHTML = '';
+
+        // htmlCode += `<li>${nombre}</li>`
+        // htmlCode += `<div id=${search.num} class="pokemonCard">
+        //             <div class="num">${"#" + search.num}</div>
+        //             <img class= "img" src=${search.img}>
+        //             <div class="name">${search.name}</div>
+        //             <div class=type>`
+        //            search.type.forEach(type => {
+        //                 htmlCode += `<div class="${type}">${type}</div>`
+        //             });
+                
+        //             htmlCode += `</div>
+        //                          </div>`
+                
+                    containerRoot.innerHTML = htmlCode;
+              htmlCode +=      `<div>${name.dataPokemon}</div>`
+              containerRoot.innerHTML = htmlCode;
+    }
 }
+})
+};
 
-// searchButton.addEventListener("click",selection)
+searchButton.addEventListener("click",buscador);
+// searchInput.addEventListener("keyup",buscador);
 
 
 data.pokemon.forEach(element => {
@@ -65,6 +90,10 @@ data.pokemon.forEach(element => {
     containerRoot.innerHTML = htmlCode;
 });
 
+
+
+
+
 for (let i = 0; i < data.pokemon.length; i++ ){
 document.querySelectorAll(".pokemonCard")[i].addEventListener("click", myFunction);
 }
@@ -74,7 +103,3 @@ function myFunction(){
     sessionStorage.setItem("clickedPokemonId", clickedPokemonId);
     window.location.href = "pokemonProfile.html";
 }
-
-
-
-
