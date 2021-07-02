@@ -73,6 +73,12 @@ searchButton.addEventListener("click",buscador);
 // searchInput.addEventListener("keyup",buscador);
 
 
+
+
+
+
+
+
 data.pokemon.forEach(element => {
     htmlCode += `<div id=${element.num} class="pokemonCard">
                     <div class="num">${"#" + element.num}</div>
