@@ -1,33 +1,14 @@
-import { example } from './data.js';
+import { operation } from './data.js';
 import data from './data/pokemon/pokemon.js';
 
 
-console.log(example);
+console.log("Función generationFilter " + operation.generationFilter)
+console.log("Función TypeFilter " + operation.typeFilter)
+console.log("Función weaknessesFilter " + operation.weaknessesFilter)
 console.log(data);
 
 const containerRoot = document.getElementById('root');
 
-
-
-/* document.body.onload = addElement;
-function addElement() {
-    //    crea un nuevo div
-    //     y añade contenido
-    var divInputButton = document.createElement("div");
-    divInputButton.className = "divInputButton"
-    var inputSearch = document.createElement("input");
-    inputSearch.value = "Ingresa el nombre de un pokemon";
-    inputSearch.className = "inputSearch"
-    divInputButton.appendChild(inputSearch);
-    var btnSearch = document.createElement("button");
-    btnSearch.type = "button";
-    btnSearch.innerText = "buscar";
-    btnSearch.className = "btnSearch"
-    divInputButton.appendChild(btnSearch);
-    //   //insertar el div entre el root y el container de las cartas
-    containerRoot.insertBefore(divInputButton);
-}
- */
 
 let htmlCode = '';
 
@@ -97,15 +78,26 @@ data.pokemon.forEach(element => {
 });
 
 
+<<<<<<< HEAD
+=======
+document.getElementById('searchButton').addEventListener("click", operation.search);
+>>>>>>> upstream/master
 
 
 
 for (let i = 0; i < data.pokemon.length; i++ ){
-document.querySelectorAll(".pokemonCard")[i].addEventListener("click", myFunction);
+document.querySelectorAll(".pokemonCard")[i].addEventListener("click", operation.clickedPokemonProfileDisplay);
 }
 
+<<<<<<< HEAD
 function myFunction(){
     let clickedPokemonId = event.currentTarget.getAttribute("id");
     sessionStorage.setItem("clickedPokemonId", clickedPokemonId);
     window.location.href = "pokemonProfile.html";
 }
+=======
+
+
+
+
+>>>>>>> upstream/master
