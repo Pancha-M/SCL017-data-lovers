@@ -1,23 +1,42 @@
-import { example, anotherExample } from '../src/data.js';
+import {operation} from '../src/data.js';
 
 
-describe('example', () => {
-  it('is a function', () => {
-    expect(typeof example).toBe('function');
+describe('operation', () => {
+  it('should be an object', () => {
+    expect(typeof operation).toBe('object');
   });
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
-  });
-});
+  // describe('operation.search', () => {
+  //   it('should be an function', () => {
+  //     expect(typeof operation.search).toBe('function');
+  //   });
+
+    describe("nombre pokemon ingresado por usuario", () => {
+      const pokemonName = "pikachu"
+      const pokemonNum =  "025"
+      
+      test("comprobar que el nombre corresponde con el numero")
+      expect(pokemonName).toContainer(pokemonNum);
+    });
+  // });
 
 
-describe('anotherExample', () => {
-  it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
+  //  describe('operation.search.searchOrClickedPokemonId', () => {
+  //   it('should be 025 for pikachu search', () => {
+  //     const searchPokemonByName = 'pikachu'
+  //     expect('operation.search.searchOrClickedPokemonId').toBe('025');
+  //   });
   });
 
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});
+
+
+//   describe('operation.clickedPokemonProfileDisplay', () => {
+//     it('should be an function', () => {
+//       expect(typeof operation.clickedPokemonProfileDisplay).toBe('function');
+//     });
+//   });
+
+// });
+
+
+
