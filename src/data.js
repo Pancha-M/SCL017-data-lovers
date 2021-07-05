@@ -1,8 +1,6 @@
 import data from './data/pokemon/pokemon.js';
 
-console.log(data)
-
-export const buttonFunction = {
+export const operation = {
 
   search: function () {
     let searchPokemonByName = document.getElementById('searchInput').value.toLowerCase()
@@ -15,14 +13,14 @@ export const buttonFunction = {
       window.location.href = "pokemonProfile.html";
       }
     });
+
   }
 
-  ,pokemonProfileDisplay: function () {
+  ,clickedPokemonProfileDisplay: function () {
     let searchOrClickedPokemonId = event.currentTarget.getAttribute("id");
     sessionStorage.setItem("searchOrClickedPokemonId", searchOrClickedPokemonId);
     window.location.href = "pokemonProfile.html";
   }
-
 
   ,goToPreviousPokemon: function () {
 
@@ -31,14 +29,8 @@ export const buttonFunction = {
   ,goToNextPokemon: function () {
 
   }
-}
-
-
-
-
-export const filter = {
-
-  generationFilter: function () {
+  
+  ,generationFilter: function () {
 
   }
 
@@ -51,6 +43,7 @@ export const filter = {
   }
 
 };
+
 
 
 
