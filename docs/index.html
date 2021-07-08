@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pokemonTypes.css" />
+</head>
+
+<body>
+
+  <header>
+    <img src="img/logoDefinitivo.png" alt="logo">
+  </header>
+
+  <nav>
+    <button id="guidesButton" class="guidesButton">Guías</button>
+    <button id="toolsButton" class="toolsButton">Herramientas</button>
+    <button id="eventsButton" class="eventosButton">Eventos</button>
+  </nav>
+
+  <div class="searchEngine">
+    <input type="text" id="searchInput" placeholder="ingresa el nombre de un pokémon" class="searchInput"/>
+    <button id="searchButton" class="searchButton">Buscar</button>
+  </div>
+
+  <div class="categories">
+    <button id="generationButton" class="generationButtonFilter">Generación</button>
+    <button id="typeButton" class="typeButtonFilter">Tipo</button>
+    <button id="weaknessesButton" class="weaknessButtonFilter">Debilidad</button>
+  </div>
+
+  
+  <div id="generationOverlay" class="generationOverlay" style="display: none">
+    <button id="kantoButton" class="kanto" value="kanto">kanto</button>
+    <button id="johtoButton" class="johto" value="johto">johto</button>
+  </div>
+
+  <div id="typeOverlay" class="typeOverlay" style="display: none">
+    <button id="normalTypeButton" class="normal" value="normal" >normal</button>
+    <button id="fightingTypeButton" class="fighting" value="fighting">fighting</button>
+    <button id="flyingTypeButton" class="flying" value="flying">flying</button>
+    <button id="poisonTypeButton" class="poison" value="poison">poison</button>
+    <button id="groundTypeButton" class="ground" value="ground">ground</button>
+    <button id="rockTypeButton" class="rock" value="rock">rock </button>
+    <button id="bugTypeButton" class="bug" value="bug">bug</button>
+    <button id="ghostTypeButton" class="ghost" value="ghost">ghost</button>
+    <button id="steelTypeButton" class="steel" value="steel">steel</button>
+    <button id="fireTypeButton" class="fire" value="fire">fire</button>
+    <button id="waterTypeButton" class="water" value="water">water</button>
+    <button id="grassTypeButton" class="grass" value="grass">grass</button>
+    <button id="electricTypeButton" class="electric" value="electric">electric </button>
+    <button id="psychicTypeButton" class="psychic" value="psychic">psychic </button>
+    <button id="iceTypeButton" class="ice" value="ice">ice</button>
+    <button id="dragonTypeButton" class="dragon" value="dragon">dragon</button>
+    <button id="darkTypeButton" class="dark" value="dark">dark </button>
+    <button id="fairyTypeButton" class="fairy" value="fairy">fairy</button>
+  </div>
+
+  <div id="weaknessesOverlay" class="weaknessesOverlay" style="display: none">
+    <button id="weakAgainstNormalButton" class="normal" value="normal">normal</button>
+    <button id="weakAgainstFightingButton" class="fighting" value="fighting">fighting</button>
+    <button id="weakAgainstFlyingButton" class="flying" value="flying">flying</button>
+    <button id="weakAgainstPoisonButton" class="poison" value="poison">poison</button>
+    <button id="weakAgainstGroundButton" class="ground" value="ground">ground</button>
+    <button id="weakAgainstRockButton" class="rock" value="rock">rock </button>
+    <button id="weakAgainstBugButton" class="bug" value="bug">bug</button>
+    <button id="weakAgainstGhostButton" class="ghost" value="ghost">ghost</button>
+    <button id="weakAgainstSteelButton" class="steel" value="steel">steel</button>
+    <button id="weakAgainstFireButton" class="fire" value="fire">fire</button>
+    <button id="weakAgainstWaterButton" class="water" value="water">water</button>
+    <button id="weakAgainstGrassButton" class="grass" value="grass">grass</button>
+    <button id="weakAgainstElectricButton" class="electric" value="electric">electric </button>
+    <button id="weakAgainstPsychicButton" class="psychic" value="psychic">psychic </button>
+    <button id="weakAgainstIceButton" class="ice" value="ice">ice</button>
+    <button id="weakAgainstDragonButton" class="dragon" value="dragon">dragon</button>
+    <button id="weakAgainstDarkButton" class="dark" value="dark">dark</button>
+    <button id="weakAgainstFairyButton" class="fairy" value="fairy">fairy</button>
+  </div>
+  
+
+  <div id="root" class="root"></div>
+
+  <footer></footer>
+
+
+  <script src="main.js" type="module"></script>
+</body>
+
+</html>
