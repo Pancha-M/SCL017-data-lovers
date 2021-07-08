@@ -24,6 +24,8 @@ data.pokemon.forEach(element => {
 });
 
 document.getElementById('searchButton').addEventListener("click", operation.search);
+document.getElementById('searchInput').addEventListener("keyup", searchFilter);
+
 
 for (let i = 0; i < data.pokemon.length; i++) {
     document.querySelectorAll(".pokemonCard")[i].addEventListener("click", operation.clickedPokemonProfileDisplay);
@@ -122,8 +124,7 @@ document.getElementById('fairyTypeButton').addEventListener("click", pokemonFilt
 //FILTRO POR TIPO
 function pokemonFilterType () {
 
-    let pokemonTypeFilter = data.pokemon
-    .filter(function(pokemon){
+    let pokemonTypeFilter = data.pokemon.filter(function(pokemon){
     let selectedType = event.currentTarget.getAttribute("value")
         
      let pokemonType = pokemon.type.filter(function(type){
@@ -189,7 +190,7 @@ function pokemonFilterWeakness () {
         return weaknesses == selectedWeakness     
      })
 
-            return pokemonWeakness == selectedWeakness
+    return pokemonWeakness == selectedWeakness
     })
  
   
@@ -214,4 +215,36 @@ pokemonWeaknessFilter.forEach(element => {
     for (let i = 0; i < pokemonWeaknessFilter.length; i++) {
         document.querySelectorAll(".pokemonCard")[i].addEventListener("click", operation.clickedPokemonProfileDisplay);
     }
+}
+
+function searchFilter () {
+
+    let pokemonSearchFilter = data.pokemon.filter(function(pokemon){
+    let inputValue = document.getElementById('searchInput').value.toLowerCase()
+    console.log("valor ingresado " + inputValue )
+    
+    // let namePokemon = pokemon.name.filter(function(name){
+
+    //  return name == pokemonSearchFilter   
+    //  })
+    return pokemon.name.toLowerCase().includes(inputValue);
+})
+
+console.log("pokemones encontrados " + pokemonSearchFilter)
+
+let htmlCode = '';
+    pokemonSearchFilter.forEach(element => {
+        htmlCode += `<div id=${element.num} class="pokemonCard">
+                        <div class="num">${"#" + element.num}</div>
+                        <img class= "img" src=${element.img}>
+                        <div class="name">${element.name}</div>
+                        <div class=type>`
+                        element.type.forEach(type => {
+                         htmlCode += `<div class="${type}">${type}</div>`
+                          });
+            htmlCode += `</div>
+                    </div>`
+
+        containerRoot.innerHTML = htmlCode;
+})
 }

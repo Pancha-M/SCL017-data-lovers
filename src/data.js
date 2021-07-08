@@ -3,6 +3,8 @@ import data from './data/pokemon/pokemon.js';
 export const operation = {
 
   search: function () {
+
+
     let searchPokemonByName = document.getElementById('searchInput').value.toLowerCase()
     let searchOrClickedPokemonId = ''
     data.pokemon.forEach(element => {
@@ -12,7 +14,7 @@ export const operation = {
       sessionStorage.setItem("searchOrClickedPokemonId", searchOrClickedPokemonId);
       window.location.href = "pokemonProfile.html";
       }
-    });
+    })
 
   }
 
@@ -42,8 +44,6 @@ export const operation = {
 
 }
 
-
-
  ,goToNextPokemon: function () {
    let pokemonPage = sessionStorage.getItem("searchOrClickedPokemonId")
     let pokemonPageNumber =  parseInt(pokemonPage);
@@ -62,9 +62,8 @@ export const operation = {
     }
   }
 
-
   
-  ,generationFilter: function () {
+,generationFilter: function () {
 
   }
 
