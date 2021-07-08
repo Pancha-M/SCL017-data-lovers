@@ -1,64 +1,11 @@
 import { operation } from './data.js';
+// import pokemon from './data/pokemon/pokemon.js';
 import data from './data/pokemon/pokemon.js';
-
-
-console.log("Función generationFilter " + operation.generationFilter)
-console.log("Función TypeFilter " + operation.typeFilter)
-console.log("Función weaknessesFilter " + operation.weaknessesFilter)
-console.log(data);
 
 const containerRoot = document.getElementById('root');
 
 
 let htmlCode = '';
-
-const searchInput = document.querySelector("#searchInput");
-const searchButton = document.querySelector("#searchButton")
-
-
-
-const buscador = () => {
-
-data.pokemon.forEach(search => {
-let dataPokemon = search.name
-    htmlCode = "";
-    
-    const userPokemonName = searchInput.value.toLowerCase();
-
-    for(let name of dataPokemon){
-    if(name.indexOf(userPokemonName) !== 1){
-        document.getElementById('root').innerHTML = '';
-
-        // htmlCode += `<li>${nombre}</li>`
-        // htmlCode += `<div id=${search.num} class="pokemonCard">
-        //             <div class="num">${"#" + search.num}</div>
-        //             <img class= "img" src=${search.img}>
-        //             <div class="name">${search.name}</div>
-        //             <div class=type>`
-        //            search.type.forEach(type => {
-        //                 htmlCode += `<div class="${type}">${type}</div>`
-        //             });
-                
-        //             htmlCode += `</div>
-        //                          </div>`
-                
-                    containerRoot.innerHTML = htmlCode;
-              htmlCode +=      `<div>${name.dataPokemon}</div>`
-              containerRoot.innerHTML = htmlCode;
-    }
-}
-})
-};
-
-searchButton.addEventListener("click",buscador);
-// searchInput.addEventListener("keyup",buscador);
-
-
-
-
-
-
-
 
 data.pokemon.forEach(element => {
     htmlCode += `<div id=${element.num} class="pokemonCard">
@@ -68,36 +15,203 @@ data.pokemon.forEach(element => {
                     <div class=type>`
 
     element.type.forEach(type => {
-        htmlCode += `<div class="${type}">${type}</div>`
+            htmlCode += `<div class="${type}">${type}</div>`
     });
-
-    htmlCode += `</div>
-                 </div>`
+      htmlCode += `</div>
+                </div>`
 
     containerRoot.innerHTML = htmlCode;
 });
 
-
-<<<<<<< HEAD
-=======
 document.getElementById('searchButton').addEventListener("click", operation.search);
->>>>>>> upstream/master
 
-
-
-for (let i = 0; i < data.pokemon.length; i++ ){
-document.querySelectorAll(".pokemonCard")[i].addEventListener("click", operation.clickedPokemonProfileDisplay);
+for (let i = 0; i < data.pokemon.length; i++) {
+    document.querySelectorAll(".pokemonCard")[i].addEventListener("click", operation.clickedPokemonProfileDisplay);
 }
 
-<<<<<<< HEAD
-function myFunction(){
-    let clickedPokemonId = event.currentTarget.getAttribute("id");
-    sessionStorage.setItem("clickedPokemonId", clickedPokemonId);
-    window.location.href = "pokemonProfile.html";
+
+
+document.getElementById('generationButton').addEventListener('click', function () {
+    document.getElementById("generationOverlay").style.display = "flex";
+    document.getElementById("typeOverlay").style.display = "none"
+    document.getElementById("weaknessesOverlay").style.display = "none"
+});
+document.getElementById('generationOverlay').addEventListener('click', function () {
+    document.getElementById("generationOverlay").style.display = "none"
+});
+
+
+document.getElementById('typeButton').addEventListener('click', function () {
+    document.getElementById("typeOverlay").style.display = "flex";
+    document.getElementById("generationOverlay").style.display = "none"
+    document.getElementById("weaknessesOverlay").style.display = "none"
+});
+document.getElementById('typeOverlay').addEventListener('click', function () {
+    document.getElementById("typeOverlay").style.display = "none"
+});
+
+
+document.getElementById('weaknessesButton').addEventListener('click', function () {
+    document.getElementById("weaknessesOverlay").style.display = "flex";
+    document.getElementById("generationOverlay").style.display = "none"
+    document.getElementById("typeOverlay").style.display = "none"
+});
+document.getElementById('weaknessesOverlay').addEventListener('click', function () {
+    document.getElementById("weaknessesOverlay").style.display = "none"
+
+});
+
+
+
+document.getElementById('kantoButton').addEventListener('click', pokemonFilterGeneration);
+document.getElementById('johtoButton').addEventListener('click', pokemonFilterGeneration);
+
+
+
+//FILTRO POR GENERACION
+function pokemonFilterGeneration () {
+
+    let pokemonGeneration = data.pokemon
+    .filter(function(pokemon){
+    let selectedGeneration = event.currentTarget.getAttribute("value")
+    return pokemon.generation.name === selectedGeneration
+})
+
+console.log(pokemonGeneration)
+
+let htmlCode = '';
+    pokemonGeneration.forEach(element => {
+        htmlCode += `<div id=${element.num} class="pokemonCard">
+                        <div class="num">${"#" + element.num}</div>
+                        <img class= "img" src=${element.img}>
+                        <div class="name">${element.name}</div>
+                        <div class=type>`
+                        element.type.forEach(type => {
+                         htmlCode += `<div class="${type}">${type}</div>`
+                          });
+            htmlCode += `</div>
+                    </div>`
+
+        containerRoot.innerHTML = htmlCode;
+    });
+
+    for (let i = 0; i < pokemonGeneration.length; i++) {
+        document.querySelectorAll(".pokemonCard")[i].addEventListener("click", operation.clickedPokemonProfileDisplay);
+    }
 }
-=======
 
+document.getElementById('normalTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('fightingTypeButton').addEventListener("click",pokemonFilterType)
+document.getElementById('flyingTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('poisonTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('groundTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('rockTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('bugTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('ghostTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('steelTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('fireTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('waterTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('grassTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('electricTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('psychicTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('iceTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('dragonTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('darkTypeButton').addEventListener("click", pokemonFilterType)
+document.getElementById('fairyTypeButton').addEventListener("click", pokemonFilterType)
 
+//FILTRO POR TIPO
+function pokemonFilterType () {
 
+    let pokemonTypeFilter = data.pokemon
+    .filter(function(pokemon){
+    let selectedType = event.currentTarget.getAttribute("value")
+        
+     let pokemonType = pokemon.type.filter(function(type){
 
->>>>>>> upstream/master
+        
+        return type == selectedType 
+      
+     })
+            return pokemonType == selectedType  
+    })
+
+  
+console.log(pokemonTypeFilter)
+
+let htmlCode = '';
+    pokemonTypeFilter.forEach(element => {
+        htmlCode += `<div id=${element.num} class="pokemonCard">
+                        <div class="num">${"#" + element.num}</div>
+                        <img class= "img" src=${element.img}>
+                        <div class="name">${element.name}</div>
+                        <div class=type>`
+                        element.type.forEach(type => {
+                         htmlCode += `<div class="${type}">${type}</div>`
+                          });
+            htmlCode += `</div>
+                    </div>`
+
+        containerRoot.innerHTML = htmlCode;
+    })
+
+    for (let i = 0; i < pokemonTypeFilter.length; i++) {
+        document.querySelectorAll(".pokemonCard")[i].addEventListener("click", operation.clickedPokemonProfileDisplay);
+    }
+}
+
+document.getElementById('weakAgainstNormalButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstFightingButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstFlyingButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstPoisonButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstGroundButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstRockButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstBugButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstGhostButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstSteelButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstFireButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstWaterButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstGrassButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstElectricButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstPsychicButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstIceButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstDragonButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstDarkButton').addEventListener("click", pokemonFilterWeakness)
+document.getElementById('weakAgainstFairyButton').addEventListener("click", pokemonFilterWeakness)
+
+//FILTRO POR DEBILIDAD
+function pokemonFilterWeakness () {
+
+    let pokemonWeaknessFilter = data.pokemon
+    .filter(function(pokemon){
+    let selectedWeakness = event.currentTarget.getAttribute("value")
+     let pokemonWeakness = pokemon.weaknesses.filter(function(weaknesses){
+
+        return weaknesses == selectedWeakness     
+     })
+
+            return pokemonWeakness == selectedWeakness
+    })
+ 
+  
+console.log(pokemonWeaknessFilter)
+
+let htmlCode = '';
+pokemonWeaknessFilter.forEach(element => {
+        htmlCode += `<div id=${element.num} class="pokemonCard">
+                        <div class="num">${"#" + element.num}</div>
+                        <img class= "img" src=${element.img}>
+                        <div class="name">${element.name}</div>
+                        <div class=type>`
+                        element.type.forEach(type => {
+                         htmlCode += `<div class="${type}">${type}</div>`
+                          });
+            htmlCode += `</div>
+                    </div>`
+
+        containerRoot.innerHTML = htmlCode;
+    })
+
+    for (let i = 0; i < pokemonWeaknessFilter.length; i++) {
+        document.querySelectorAll(".pokemonCard")[i].addEventListener("click", operation.clickedPokemonProfileDisplay);
+    }
+}

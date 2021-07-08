@@ -2,13 +2,11 @@ import { operation } from './data.js';
 import data from './data/pokemon/pokemon.js';
 
 
-console.log("Función goToPreviousPokemon " + operation.goToPreviousPokemon);
 console.log("Función goToNextPokemon " + operation.goToNextPokemon);
 console.log(data);
 
 const containerRoot = document.getElementById('root');
 let htmlCode = ''
-
     
     ,searchOrClickedPokemonId = sessionStorage.getItem("searchOrClickedPokemonId")
     ,selectedPokemonIndex = searchOrClickedPokemonId -1
@@ -50,15 +48,15 @@ switch(searchOrClickedPokemonId){
         nextPokemonIndex = selectedPokemonIndex +1;
     htmlCode = 
         `<div class=prevOrNextButtons>
-            <button class=nextPokemonButton>${data.pokemon[nextPokemonIndex].name + " #" + data.pokemon[nextPokemonIndex].num}</button>
+            <button class=nextPokemonButton >${data.pokemon[nextPokemonIndex].name + " #" + data.pokemon[nextPokemonIndex].num}</button>
         </div>`
     break;
 
     case "251":
         previousPokemonIndex = selectedPokemonIndex -1;
     htmlCode = 
-        `<div class=prevOrNextButtons>
-           <button class=prevPokemonButton>${data.pokemon[previousPokemonIndex].name + " #" + data.pokemon[previousPokemonIndex].num}</button>
+        `<div class=prevOrNextButtons id=nextPokemonButton>
+           <button class=prevPokemonButton id=prevPokemonButton>${data.pokemon[previousPokemonIndex].name + " #" + data.pokemon[previousPokemonIndex].num}</button>
         </div>`
     break;
 
@@ -67,8 +65,8 @@ switch(searchOrClickedPokemonId){
         previousPokemonIndex = selectedPokemonIndex -1;
     htmlCode = 
         `<div class=prevOrNextButtons>
-            <button class=prevPokemonButton>${data.pokemon[previousPokemonIndex].name + " #" + data.pokemon[previousPokemonIndex].num}</button>
-            <button class=nextPokemonButton>${data.pokemon[nextPokemonIndex].name + " #" + data.pokemon[nextPokemonIndex].num}</button>
+            <button class=prevPokemonButton id=prevPokemonButton>${data.pokemon[previousPokemonIndex].name + " #" + data.pokemon[previousPokemonIndex].num}</button>
+            <button class=nextPokemonButton id=nextPokemonButton>${data.pokemon[nextPokemonIndex].name + " #" + data.pokemon[nextPokemonIndex].num}</button>
         </div>`
 }
 
@@ -253,5 +251,10 @@ switch (true) {
 
  
 containerRoot.innerHTML = htmlCode
+
+
+document.getElementById('prevPokemonButton').addEventListener("click", operation.goToPreviousPokemon)
+document.getElementById('nextPokemonButton').addEventListener("click", operation.goToNextPokemon)
+
 
 

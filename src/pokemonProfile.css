@@ -188,32 +188,6 @@ h2 {
   text-align: center;
 }
 
-.kanto {
-  background: #80bb1d;
-  width: 100px;
-  height: 40px;
-  margin-top: 0px;
-  border-radius: 30px;
-  align-self: center;
-
-  font-size: 18px;
-  text-align: center;
-  line-height: 40px;
-}
-
-.johto {
-  background: #1db2bb;
-  width: 131px;
-  height: 40px;
-  margin-top: 0px;
-  border-radius: 30px;
-  align-self: center;
-
-  font-size: 18px;
-  text-align: center;
-  line-height: 40px;
-}
-
 .type {
   background-color: #c4c4c4;
   width: 200px;
@@ -366,20 +340,6 @@ h3 {
     height: 80px;
     align-content: center;
     text-align: center;
-  }
-
-  .kanto {
-    width: 80px;
-    height: 20px;
-    font-size: 15px;
-    line-height: 20px;
-  }
-
-  .johto {
-    width: 80px;
-    height: 20px;
-    font-size: 15px;
-    line-height: 20px;
   }
 
   .type {
